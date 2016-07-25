@@ -5,7 +5,7 @@ public class userModel {
 
     public static final String LIMIT = "10"; //分页，limit的默认值10项
     private IQueryCountItemListener queryCountItemListener;
-
+ ;
     //    public void QueryMoreItem(int page) {
 //        Map<String, String> queryMap = new HashMap<>();
 //        queryMap.put("order", "-updatedAt");
