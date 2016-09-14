@@ -1,0 +1,26 @@
+buildscript {
+    //Repositories 配置的是上面所说的依赖管理的东西，也就是依赖管理的服务器。默认是 jcenter()
+    //编译准备
+    repositories {
+        jcenter()
+    }
+    //dependencies 这个也是依赖管理的东西，上面是指定依赖管理的服务器，这个就是具体依赖什么库。
+    //联合起来也就是，依赖 jcenter() 服务中的 gradle 库
+    dependencies {
+        // NOTE: Do not place your application dependencies here; they belong
+        classpath 'com.android.tools.build:gradle:2.1.0'
+        //Retrolambda
+        classpath 'me.tatarka:gradle-retrolambda:3.3.0-beta4'
+    }
+}
+//所有项目准备
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+dependencies {
+}
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

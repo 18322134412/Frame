@@ -1,0 +1,108 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.3'
+    signingConfigs {
+        debug{
+            keyAlias 'frame'
+            keyPassword 'caolin111'
+            storeFile file('C:/Users/caolin/Desktop/小工具/frame.jks')
+            storePassword 'caolin111'
+        }
+        release {
+            keyAlias 'frame'
+            keyPassword 'caolin111'
+            storeFile file('C:/Users/caolin/Desktop/小工具/frameRealease.jks')
+            storePassword 'caolin111'
+        }
+    }
+    defaultConfig {
+        //包名
+        applicationId "com.example.caolin.frame"
+        //sdk最低支持版本
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+
+        //所有版本原生配置
+        ndk {
+            abiFilters 'armeabi', "x86"
+        }
+    }
+    buildTypes {
+        debug {
+            //显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+//            //设置是否混淆
+//            minifyEnabled true
+//            //设置压缩对齐 Zipalign优化
+//            zipAlignEnabled true
+//            //移除无用的资源文件  慎用危险！如方法getResources().getIdentifier无效,另阿里百川和京东开普勒的图片签名认证会出现问题
+//            //shrinkResources true
+              signingConfig signingConfigs.debug
+//            //设置混淆配置文件 proguard-android.txt在sdk目录里面，不用管，proguard-rules.pro是我们自己配的混淆文件
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            //不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            //设置是否混淆
+           // minifyEnabled true
+            //设置压缩对齐 Zipalign优化
+            zipAlignEnabled true
+            //移除无用的资源文件  慎用危险！如方法getResources().getIdentifier无效,另阿里百川和京东开普勒的图片签名认证会出现问题
+            //shrinkResources true
+            signingConfig signingConfigs.release
+            //设置混淆配置文件 proguard-android.txt在sdk目录里面，不用管，proguard-rules.pro是我们自己配的混淆文件
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    splits {
+        abi {
+            //启用ABI拆分机制
+            enable true
+            //重置ABI列表为只包含一个空字符串（这可以实现，在与include一起使用来可以表示要使用哪一个ABI，而不是要忽略哪一些ABI）
+            reset()
+            //默认情况下所有ABI都包括在内，你可以移除一些ABI。
+            //exclude 'x86_64', 'arm64-v8a'
+            //指明要包含哪些ABI
+            include 'armeabi', 'x86'
+            //指示是否打包一个通用版本（包含所有的ABI）。默认值为 false。
+            universalApk true
+        }
+    }
+    // map for the version code
+    project.ext.versionCodes = ['armeabi': 1, 'x86': 2]
+    android.applicationVariants.all { variant ->
+        // assign different version code for each output
+        variant.outputs.each { output ->
+            output.versionCodeOverride =
+                    project.ext.versionCodes.get(output.getFilter(com.android.build.OutputFile.ABI), 0) * 1000000 + android.defaultConfig.versionCode
+        }
+    }
+}
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    //Fresco
+    compile 'com.facebook.fresco:fresco:0.9.0'
+    compile 'com.facebook.fresco:imagepipeline-okhttp:0.9.0'
+    //Rx
+    compile 'io.reactivex:rxjava:1.1.3'
+    compile 'io.reactivex:rxandroid:1.1.0'
+    //http Log 发布前清理
+    compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
+    //Retrofit 2.0
+    compile 'com.squareup.retrofit2:retrofit:2.0.1'
+    //Retrofit Converter-Gson 2.0
+    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.1'
+}

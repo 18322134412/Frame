@@ -1,0 +1,73 @@
+<resources>
+
+
+    <string name="app_name">羊毛口袋</string>
+    <string name="app_introduction">轻轻地改变您的财富</string>
+    <string name="app_version">当前版本v%1$s</string>
+
+    <string name="tab_bottom_index">首页</string>
+    <string name="tab_bottom_item">项目</string>
+    <string name="tab_bottom_me">我的</string>
+    <string name="tab_bottom_more">更多</string>
+
+    <string name="item_list_title_left">神券神价</string>
+    <string name="item_list_title_right">羊毛爆料</string>
+
+    <string name="title_left_img_desc">标题左侧图标</string>
+    <string name="title_right_img_desc">标题右侧图标</string>
+
+    <string name="tx_help">帮助</string>
+    <string name="tx_activity_center">活动中心</string>
+    <string name="tx_new">new</string>
+    <string name="tx_notice_center">通知公告</string>
+    <string name="tx_help_center">帮助中心</string>
+    <string name="tx_safe_center">风险控制</string>
+    <string name="tx_about_us">联系我们</string>
+    <string name="tx_check_update">检查更新</string>
+    <string name="tx_share_to_friends">转给好友</string>
+    <string name="tx_feedback">意见反馈</string>
+    <string name="tx_encourage_us">给我鼓励</string>
+    <string name="tx_attention_us">关注我们</string>
+    <string name="tx_exchange">兑换优惠</string>
+    <string name="tx_login">登录</string>
+    <string name="tx_change_account">切换账号</string>
+    <string name="tx_logout">退出登录</string>
+    <string name="tx_back">返回</string>
+    <string name="tx_close">关闭</string>
+    <string name="tx_cancel">取 消</string>
+    <string name="tx_lost_password">忘记密码</string>
+    <string name="tx_hint_password">请输入登录密码</string>
+    <string name="tx_hint_phone">请输入手机号</string>
+    <string name="tx_hint_sms">请输入验证码</string>
+    <string name="tx_register_new">注册新用户</string>
+    <string name="feedback_tip">请输入您的反馈意见</string>
+    <string name="network_tips">当前网络不可用,请检查您的网络!</string>
+    <string name="toast_error_phone_null">手机号不能为空</string>
+    <string name="toast_error_phone_error">手机号格式不正确</string>
+    <string name="toast_error_password_null">密码不能为空</string>
+    <string name="toast_error_password_error">密码长度不正确，请输入6–16位</string>
+    <string name="toast_error_sms_null">验证码不能为空</string>
+    <string name="account_center_account">账户</string>
+    <string name="account_center_key_login">修改登录密码</string>
+    <string name="account_center_key_trading">修改交易密码</string>
+    <string name="feedback_number">%1$d/160</string>
+    <string name="invitation_number">%1$d位好友为我赚取了></string>
+    <string name="invitation_money">￥%1$d</string>
+    <string name="invitation_vip">您当前为：%1$s \n每邀请一位好友，最高可得%2$d积分奖励</string>
+    <string name="shake_times">您今天还可以摇%1$d次</string>
+    <string name="countdown_number"> 发送中..%1$d秒 </string>
+    <string name="tx_search">搜索</string>
+    <string name="tx_hint_nickname">请输入昵称</string>
+    <string name="tx_hint_old_password">请输入原始密码</string>
+    <string name="tx_hint_new_password">请输入新密码</string>
+    <string name="tx_hint_verify_password">请确认新密码</string>
+    <string name="tx_credit_vip_up">积分:%1$d   距下一等级差:%2$d</string>
+    <string name="string_to_string">%1$s</string>
+    <string name="number_to_string">%1$d</string>
+    <string-array name="feedback_type_array">
+        <item>功能问题</item>
+        <item>用户体验</item>
+        <item>您的需求</item>
+        <item>其他</item>
+    </string-array>
+</resources>
